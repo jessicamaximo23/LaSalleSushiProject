@@ -30,4 +30,6 @@ Happy sushi shopping! 🍣🥢
 
 
 ## Author
-Jéssica Máximo de Souza (https://www.linkedin.com/in/j%C3%A9ssica-m%C3%A1ximo-b65467115/)
+Jéssica Máximo de Souza 
+
+🔗https://www.linkedin.com/in/j%C3%A9ssica-m%C3%A1ximo-b65467115/
