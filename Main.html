@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Salle Sushi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
+    <style>
+        body {
+            background-color:  #f7f9f8;
+            color:#343a40;
+           
+        }
+        h1{
+            height: 5%;
+            width: 5%;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    
+        }
+        
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 35.rem;
+            color: #f7f9f8;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }             
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f7f9f8;
+            font-size: 18.rem;          
+            white-space: nowrap;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .dropdown-menu{
+            background-color:  #f7f9f8 !important;
+        }
+              
+
+        .container-fluid img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .background-image {
+            background-image: url('Images/backgroundImage.webp'); 
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;  
+        }
+    
+        .background-image-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+       
+        .background-image h1 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            margin-left: -0px;
+            font-weight: bold;
+            color: #0c442b;
+        }
+        
+        .background-image p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .background-image .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border-radius: 5px;
+        }
+      
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+
+        .about.right {
+            align-items: center;
+            margin-top: 4%;
+           
+        }
+
+        .about.left {
+            align-items: center;      
+            margin-top: 4%;
+          
+                
+        }       
+
+        .about img {            
+            height: auto;
+        }
+
+        .about h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #0c442b;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #343a40;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        .informations-contact {
+            background-color: #e5e2e2;
+            padding: 50px 0;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .informations h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0c442b;
+            
+        }
+       
+        footer {
+            background-color: #343a40;
+            color: #ffc107;
+            text-align: center;
+            padding: 10px;
+            position:relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            margin: 10px;
+        }
+
+        .navbar-toggler:focus {
+            background-color: transparent !important;
+            outline: none !important;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Start Navigation bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">           
+                <span>La Salle</span> Sushi
+                <h1><img src="Images/ImagemHeader2.jpg"></h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Menu
+                        </a>
+                        <ul class="dropdown-menu">                     
+                            <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                            <li>
+                                <a class="dropdown-item" href="menu.html">Sushi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Signin.html">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navigation bar -->
+
+    <!-- Start Section Background Image -->
+    <section class="background-image">
+        <div class="background-image-content">
+            <h1>Welcome to La Salle Sushi</h1>
+            <p>Discover a unique experience of flavor and quality.</p>
+            <a href="Menu.html" class="btn">Discover our menu</a>
+        </div>
+    </section>
+    <!-- End Section Background Image -->
+
+    <!-- Start Section About -->
+    <!-- Section Image right -->
+    <section class="about right">   
+        <div class="about">
+            <img src="Images/SushiMain1.jpg" alt="lasallesushi">
+            <h3>Opening Hours</h3>        
+            <p>Monday to Thursday - 11:30am to 3:30pm / 6pm to midnight</p>
+            <p>Friday and Saturday - 11:30am to 1am</p>
+            <p>Sunday - 11:30am to 10:30pm</p>        
+        </div>
+    </section>
+
+    <!-- Section Image left -->
+    <section class="about left">   
+        <div class="about">
+            <img src="Images/SushiMain5.webp" alt="lasallesushi">
+            <h3>About</h3>
+            <p>Lasalle Sushi Japanese Food began as a desire to undertake. </p>
+            <p>As the old cliché goes: "those who do what they love don't work".</p> 
+            <p>So, Lasalle Sushi became a job that we loved so much, our daily choice to be the best in Brossard.</p>
+            <p>We have almost nothing traditional.Just like in the beginning, we like the innovation of contemporary cuisine, </p>
+            <p>bringing together the most modern in Asian cuisine and, mainly, from Japan.</p>
+        </div>    
+    </section>
+    <!-- End Section About -->
+
+    <!-- Start Section Informations -->
+    <div class="container">
+        <section class="informations"> 
+            <br>
+            <div class="informations-contact">
+                <h2>Contact</h2>    
+                <address>       
+                    <p>Adress: Stret 89, 325 - Brossard Quebec</p>
+                    <p>Phone: (342) 1234-5678</p>
+                    <p>Email: LasalleSushi@food.com</p>
+                </address>
+            </div>
+        </section>
+    </div>
+    <!-- End Section Informations -->
+
+    <!-- Start Footer -->
+    <footer>
+        <p>© 2024 La Salle Sushi. All rights reserved.</p>
+    </footer>
+    <!-- End Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

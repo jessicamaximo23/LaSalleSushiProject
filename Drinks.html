@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opções de Drinks - Restaurante de Sushi</title> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
+  <style>
+      body {
+      background-color: #f2f2f2;
+      color: #333; 
+      margin: 0;
+      padding: 0;
+      
+      }
+        h1{
+            height: 5%;
+            width: 5%;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 35.rem;
+            color: #f7f9f8;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }  
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f7f9f8;
+            font-size: 18.rem;          
+            white-space: nowrap;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        #cartModal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        top: 50%;
+        right: 20px; 
+        transform: translate(50%, -50%);
+        width: 20%; 
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity button {
+            background-color: #ffc107;
+            color:black;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+
+        .quantity button:hover {
+            background-color: #7b5e07;
+        }
+
+        .quantity input {
+            width: 40px;
+            text-align: center;
+        }
+
+        .cart-items {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border: 2px solid #ccc;
+        z-index: 9999; 
+        width: 20%;
+        }
+
+        .container-fluid img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: #ffc107;
+            text-align: center;
+            padding: 10px;
+            position:relative;
+            bottom: 0;
+            width: 100%;
+        }
+        
+
+  </style>
+</head>
+<body> 
+    <!-- Start Navigation bar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="Main.html">           
+              
+              <span>La Salle</span> Sushi
+              <h1><img src="Images/ImagemHeader2.jpg"></h1>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Menu
+                      </a>
+                      <ul class="dropdown-menu">                     
+                          <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                          <li>
+                              <a class="dropdown-item" href="menu.html">Sushi</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="Signin.html">Sign in</a>
+                  </li>                
+                  <li class="nav-item">
+                      <a class="nav-link" href="Cart.html">Cart</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  <!-- End Navigation bar -->
+<!-- Menu Drinks Start -->
+
+<!-- First row -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/Saketini.jpg" alt="Drink 1">
+
+        <div class="card-body">
+          <h4 class="card-title">Saketini</h4>
+          <p class="card-text">A perfect mix of sake and martini, perfect to accompany sushi.</p>
+          <p class="card-text">$19.90</p>
+          <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-warning">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-warning">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Saketini', 19.90, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/Plum Wine Spritzer.png" alt="Drink 2">
+        <div class="card-body">
+          <h4 class="card-title">Plum Wine Spritzer</h4>
+          <p class="card-text">A refreshing drink, made with plum wine and sparkling water.</p>
+          <p class="card-text">$22.0</p>
+          <div class="quantity">
+            <button onclick="decrementQuantity(this)" class="btn btn-sm btn-warning">-</button>
+            <span class="quantity-display" style="margin: 0 10px;">0</span>
+            <button onclick="incrementQuantity(this)" class="btn btn-sm btn-warning">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Plum Wine Spritzer', 22.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/green-tea-mojito.webp" alt="Drink 3">
+        <div class="card-body">
+          <h4 class="card-title">Green Tea Mojito</h4>
+          <p class="card-text">An oriental twist on the classic mojito, made with green tea and mint.</p>
+          <p class="card-text">$15.90</p>
+          <div class="quantity">
+            <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+            <span class="quantity-display" style="margin: 0 10px;">0</span>
+            <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Green Tea Mojito', 15.90, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Second row -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/SparklingElderFlower.jpeg" alt="Drink 4">
+          <div class="card-body">
+            <h4 class="card-title">Sparkling ElderFlower</h4>
+            <p class="card-text">The smooth elderflower notes play off the subtle sweetness in the sake, and the entire cocktail finishes with a bright burst of pomegranate and citrus to tickle your taste buds. </p>
+            <p class="card-text">$15.0</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('Sparkling Elder Flower', 15.0, this)" class="btn btn-warning mt-2">Add to Cart</button>            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/GingerChapagne.jpeg"alt="Drink 5">
+          <div class="card-body">
+            <h4 class="card-title">Ginger Champagne</h4>
+            <p class="card-text">Composed of champagne, vodka, lemon and lime juice as well as grated ginger, this cocktail will make your guests' taste buds explode and sparkle at the start of the meal.</p>
+            <p class="card-text">$22.0</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('Ginger Chapagne', 22.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/Orange Juice.jpg" alt="Drink 6">
+          <div class="card-body">
+            <h4 class="card-title">Sparkling Orange</h4>
+            <p class="card-text">A refreshing drink, made with orange juice and sparkling water.</p>
+            <p class="card-text">$15.0</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('Sparkling Orange', 15.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Third row -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/Wine Potter.jpg" alt="Drink 7">
+          <div class="card-body">
+            <h4 class="card-title">Potter Settlement 2017 Marquette</h4>
+            <p class="card-text">It has a refreshing character, with fruity aromas of cherries and berries. Upon drinking it, you’ll taste some delicate spices, followed by smokey flavours and a gentle touch of oak essence.</p>
+            <p class="card-text">$71.95</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('Potter Settlement 2017 Marquette', 71.95, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/WhiteWine.jpg"alt="Drink 8">
+          <div class="card-body">
+            <h4 class="card-title">Le Grand Clos 2020 Chardonnay</h4>
+            <p class="card-text">A medium-bodied wine, the Le Grand Clos 2020 Chardonnay has strong layers of fresh tropical fruits, such as pineapple, pear, and peach. It certainly demands your attention with its fresh acidity due to the notes of lemon and vanilla on the palate.</p>
+            <p class="card-text">$49.95</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('Le Grand Clos 2020 Chardonnay', 49.95, this)" class="btn btn-warning mt-2">Add to Cart</button>            
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="Images/Wineblanc.jpg" alt="Drink 9">
+          <div class="card-body">
+            <h4 class="card-title">2017 Blanc de Blanc Traditional Method Sparkling</h4>
+            <p class="card-text">First revealing fruity notes of green apple and pear, it is then followed by sweet aromas of sweet creme brulee and nougat. The experience finishes by leaving you with a hint of zest and a taste of oak and toasted nuts.</p>
+            <p class="card-text">$52.0</p>
+            <div class="quantity">
+              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+              <span class="quantity-display" style="margin: 0 10px;">0</span>
+              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+            </div>
+            <br>
+            <button onclick="addToCart('2017 Blanc de Blanc Traditional Method Sparkling', 52.0, this)" class="btn btn-warning mt-2">Add to Cart</button>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Forth row -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/Perrier.avif" alt="Drink 10">
+        <div class="card-body">
+          <h4 class="card-title">Water Perrier</h4>
+          <p class="card-text">$8.0</p>
+          <div class="quantity">
+            <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+            <span class="quantity-display" style="margin: 0 10px;">0</span>
+            <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Water Perrie', 8.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/Crush.webp"alt="Drink 11">
+        <div class="card-body">
+          <h4 class="card-title">Crush</h4>
+          <p class="card-text">$6,99</p>
+          <div class="quantity">
+            <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+            <span class="quantity-display" style="margin: 0 10px;">0</span>
+            <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Crush', 6.99, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <img class="card-img-top" src="Images/Pepsi.jpg" alt="Drink 12">
+        <div class="card-body">
+          <h4 class="card-title">Pepsi</h4>
+          <p class="card-text">6,99</p>
+          <div class="quantity">
+            <button onclick="decrementQuantity(this)" class="btn btn-sm btn-outline-secondary">-</button>
+            <span class="quantity-display" style="margin: 0 10px;">0</span>
+            <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
+          </div>
+          <br>
+          <button onclick="addToCart('Pepsi', 6.99, this)" class="btn btn-warning mt-2">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Menu Drinks End -->
+
+<!-- Carrinho de compras -->
+<div class="cart-items">
+    <h2>Your Cart</h2>
+    <ul id="cartItemList" class="list-group">
+        <!-- Cart items will be dynamically added here -->
+    </ul>
+    <p id="cartTotal" class="lead">Total: $0.00</p>
+    <button onclick="clearCart()" class="clear-cart-btn">Clear Cart</button>
+    <button onclick="checkout()" class="checkout-btn">Checkout</button>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  //Array for store itens
+    let cart = [];
+
+    function incrementQuantity(element) {
+        let quantityElement = element.parentNode.querySelector('.quantity-display');
+        let currentQuantity = parseInt(quantityElement.textContent);
+        quantityElement.textContent = currentQuantity + 1;
+    }
+
+    function decrementQuantity(element) {
+        let quantityElement = element.parentNode.querySelector('.quantity-display');
+        let currentQuantity = parseInt(quantityElement.textContent);
+        if (currentQuantity > 0) {
+            quantityElement.textContent = currentQuantity - 1;
+        }
+    }
+
+    // Função para adicionar um item ao carrinho
+function addToCart(itemName, itemPrice, button) {
+    let quantityElement = button.parentNode.querySelector('.quantity-display');
+    let quantity = parseInt(quantityElement.textContent);
+
+    if (quantity > 0) {
+        let item = {
+            name: itemName,
+            price: itemPrice,
+            quantity: quantity
+        };
+        cart.push(item); // Adiciona o item ao carrinho
+        updateCart(); // Atualiza o carrinho após adicionar o item
+        updateTotal(); // Atualiza o valor total do carrinho
+    } else {
+        alert('Please select a quantity greater than 0.');
+    }
+}
+
+
+    // Function for Update
+    function updateCart() {
+        let cartItemList = document.getElementById('cartItemList');
+        cartItemList.innerHTML = ''; // Limpa a lista de itens do carrinho
+
+        cart.forEach(item => {
+            let listItem = document.createElement('li');
+            listItem.classList.add('list-group-item');
+            listItem.textContent = `${item.name} - Quantity: ${item.quantity} - Price: $${(item.price * item.quantity).toFixed(2)}`;
+            //add the item inside the list
+            cartItemList.appendChild(listItem); 
+        });
+    }
+
+    // Funnction for de Total value
+    function updateTotal() {
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+        });
+        //refresd the Total value 
+        document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+    }
+
+    function openCart() {
+        document.getElementById('cartModal').style.display = 'block';
+    }
+
+    function closeCart() {
+        document.getElementById('cartModal').style.display = 'none';
+    }
+
+
+    // Function for clean the cart
+function clearCart() {
+  //Empty the array
+    cart = []; //
+    // Update the cart to reflect the removal of items
+    updateCart();
+    // Update the total cart value to reflect the removal of items
+    updateTotal(); 
+}
+
+
+function checkout() {
+    // Changed the location for paymmentmethod
+    window.location.href = "Cart.html";
+}
+</script>
+
+</body>
+</html>

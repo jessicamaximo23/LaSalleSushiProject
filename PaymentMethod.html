@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Method</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
+    <style>      
+        body {           
+        background-color: #ffffff; 
+        color: #343a40; 
+        padding: 0%;
+        }
+        h1{
+            height: 5%;
+            width: 5%;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 35.rem;
+            color: #f7f9f8;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand i {
+            margin-right: 10px;
+        }  
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f7f9f8;
+            font-size: 18.rem;          
+            white-space: nowrap;
+            
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .container-fluid img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        } 
+
+        .custom-navbar-brand {
+            font-size: 20px;
+            color: #ffc107; 
+        }    
+    
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .btn-save {
+        background-color:  #ffc107;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top:5%;
+    }
+ 
+    
+    #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;  
+                    
+        }
+    .footer{
+            text-align: center;
+            background-color: #343a40;
+            color: #ffc107;
+            margin-top: 10%; 
+    }
+</style>
+</head>
+<body>
+   
+     <!-- Start Navigation bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Main.html">           
+            
+            <span>La Salle</span> Sushi
+            <h1><img src="Images/ImagemHeader2.jpg"></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu">                     
+                        <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                        <li>
+                            <a class="dropdown-item" href="menu.html">Sushi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Signin.html">Sign in</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="Cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navigation bar -->
+
+<!-- Payment Method Start -->
+
+<div class="container">
+    <form id="payment-form">
+        <h1>Payment Method</h1>
+        <div class="form-group">
+            <label for="card-number">Credit Card Number</label>
+            <input type="text" id="card-number" name="card-number" placeholder="Your card number" required>
+        </div>
+        <div class="form-group">
+            <label for="card-name">Credit Registered Name</label>
+            <input type="text" id="card-name" name="card-name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="expiry-date">Expiry Date</label>
+                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required class="form-control">
+                </div>
+                <div class="col">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="CVV" required class="form-control">
+                </div>
+                <div class="col">
+                    <label for="zip-code">Zip Code</label>
+                    <input type="text" id="zip-code" name="zip-code" placeholder="Zip" required class="form-control">
+                </div>
+            </div>
+        </div>        
+        
+        <button type="button" class="btn-save">Save Card</button>
+    </form>
+    
+    
+<!-- Payment Method End -->
+
+<!-- Start Footer -->
+<div class="footer">
+    <p>© 2024 La Salle Sushi. All rights reserved.</p>
+  </div>
+  <!-- End Footer -->
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const cardNumberInput = document.getElementById('card-number');
+        const cardNameInput = document.getElementById('card-name');
+        const expiryDateInput = document.getElementById('expiry-date');
+        const cvvInput = document.getElementById('cvv');
+        const zipCodeInput = document.getElementById('zip-code');
+        const btnSave = document.querySelector('.btn-save');
+        const btnConfirm = document.querySelector('.btn-confirm');
+    
+        btnSave.addEventListener('click', function () {
+            const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+            const cardName = cardNameInput.value.trim();
+            const expiryDate = expiryDateInput.value.trim();
+            const zipCode = zipCodeInput.value.trim();
+            
+            if (!/^\d+$/.test(cardNumber) || cardNumber.length < 16 || cardNumber === "") {
+                alert("Please enter at least 16 numbers for the card number.");
+                return;
+            }
+    
+            if (!/^[a-zA-Z ]+$/.test(cardName) || cardName === "") {
+                alert("Please enter a valid name.");
+                return;
+            }
+    
+            if (!/^(0[1-9]|1[0-2])\/(2[4-9]|[3-9]\d)$/.test(expiryDate) || expiryDate === "") {
+                alert("Please enter a valid expiry date in MM/YY format.");
+                return;
+            }
+    
+            const cvv = cvvInput.value.trim();
+            if (!/^\d{3}$/.test(cvv) || cvv === "") {
+                alert("CVV should be three numbers.");
+                return;
+            }
+    
+            if (zipCode.length < 6 || zipCode === "") {
+                alert("Please fill the Postal Code.");
+                return;
+            }
+    
+            alert('Card details saved successfully!');
+        });
+    
+        btnConfirm.addEventListener('click', function () {
+            
+            alert('Order confirmed!');
+        });
+    });
+
+
+</script>
+</body>
+</html>

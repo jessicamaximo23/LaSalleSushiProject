@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Salle Sushi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
+    <style>
+
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+           
+        }
+        h1{
+            height: 5%;
+            width: 5%;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        h3{
+
+        font-size: 4rem;
+        text-align: center;
+        color: black;
+        font-size: 36px;       
+        animation: highlight 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes highlight {
+        from {
+        color: black;
+        text-shadow: none;
+        }
+    
+        to {
+        color: red;
+        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 40px yellow, 0 0 80px green, 0 0 160px blue, 0 0 320px violet;
+        }
+    }
+
+        #Special_Plates_Text{
+        color: black;
+        }   
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 35.rem;
+            color: #f7f9f8;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }  
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f7f9f8;
+            font-size: 18.rem;
+            white-space: nowrap;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .container-fluid img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        .custom-navbar-brand {
+            font-size: 20px;
+            color: #ffc107; 
+        }      
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }      
+        
+        #page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #content-wrap {
+            padding-bottom: 2.5rem;   
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;            
+        }
+        .footer{
+            text-align: center;
+            background-color: #343a40;
+            color: #ffc107;
+        }
+       
+        .product-thumbnail {        
+            display: inline-block;
+            width: calc(20.0% - 20px); 
+            margin: 10px;
+            text-align: center;
+            margin-left: 60px;
+            cursor: pointer;
+        } 
+        .product-thumbnail img { 
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 2px solid black;
+            object-fit: cover;
+            flex: 0 0 auto;
+            margin-right: 10px; 
+        }        
+
+        .special-plates {            
+            background-color: #f2f2f2;
+            color: #ff6347;
+            padding: 20px;
+            border: 2px solid #ccc;
+            margin-bottom: 20px;
+            height: auto;
+            font-size: 1.6rem;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border: 2px solid black;
+            object-fit: cover;
+            flex: 0 0 auto; 
+            margin-right: 10px; 
+            
+        }
+        
+        .special-plates h2 {
+            color: #ff6347; 
+            font-size: 1.6rem;
+        }
+
+        .shop-product-metas {
+            margin-top: 10px; 
+            text-align: left;
+            font-size: 1.6rem;
+        }
+
+        .shop-product-metas h2 {
+        margin: 0; 
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .popup-buttons {
+            margin-top: 20px;
+        }
+
+        .popup-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #0c9f2c;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .popup-button:hover {
+            background-color: #0c9f2c;
+        }
+
+        .popup-button.secondary {
+            background-color: #db0e23;
+        }
+
+        .popup-button.secondary:hover {
+            background-color: #bd2130;
+        }
+
+    </style>
+</head>
+<body>
+ <!-- Start Navigation bar -->
+ <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Main.html">           
+            
+            <span>La Salle</span> Sushi
+            <h1><img src="Images/ImagemHeader2.jpg"></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu">                     
+                        <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                        <li>
+                            <a class="dropdown-item" href="menu.html">Sushi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Signin.html">Sign in</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="Cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navigation bar -->
+
+<!--Start Plates-->
+<p> </p>
+<p> </p>
+<p> </p>
+<h3 class="shortcode_title">Enjoy our great variety of Oriental Cuisine!</h3>
+
+
+<ul class="products-grid">
+
+    <li class="product-thumbnail" onclick="showPopup('Spring Rolls', 4.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/spring-roll-1-scaled-300x300.jpg" alt="Spring Rolls">
+        <div class="shop-product-metas">
+                <h2>Spring Rolls</h2>
+            <span class="price">$4.95</span>
+            </div>
+    </li>
+    
+    <li class="product-thumbnail" onclick="showPopup('Deep Fried Gyoza', 5.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/1604_Carrot-Dumplings_009-300x300.jpg" alt="Deep Fried Gyoza">
+        <div class="shop-product-metas">
+                <h2>D.Fry Gyoza</h2>
+            <span class="price">$5.95</span>
+        </div>
+    </li>
+    
+    <li class="product-thumbnail" onclick="showPopup('Side Kimchi', 6.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/Kimchi-5-1-300x300.jpg" alt="Side Kimchi">
+        <div class="shop-product-metas">
+                <h2>Side Kimchi</h2>
+            <span class="price">$6.95</span>
+        </div>
+    </li>
+        
+    <li class="product-thumbnail" onclick="showPopup('House Edamame', 6.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/IMG_5307-300x300.jpg" alt="Edamame">
+        <div class="shop-product-metas">
+                <h2>House Edamame</h2>
+            <span class="price">$6.95</span>
+        </div>
+    </li>
+        
+    <li class="product-thumbnail" onclick="showPopup('Dashi Tofu', 6.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/IMG_5304-300x300.jpg" alt="Age dashi Tofu">
+        <div class="shop-product-metas">
+                <h2>Dashi Tofu</h2>
+            <span class="price">$6.95</span>
+        </div>
+    </li>
+        
+    <li class="product-thumbnail" onclick="showPopup('Jalapeno Bomb', 9.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/11/Jalapeño-Bomb-300x300.jpg" alt="Jalapeno Bomb">
+        <div class="shop-product-metas">
+                <h2>Jalapeno Bomb</h2>
+            <span class="price">$9.95</span>
+        </div>
+    </li>
+        
+    <li class="product-thumbnail" onclick="showPopup('Sweet T. chicken', 8.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2017/12/sweet-Thai-chicken-1-300x300.jpg" alt="Sweet Thai chicken">
+        <div class="shop-product-metas">
+                <h2>Sweet T. chicken</h2>
+            <span class="price">$8.95</span>
+        </div>
+    </li>
+        
+    <li class="product-thumbnail" onclick="showPopup('LaSalle Takoyaki', 8.95)">
+            <img src="https://japangomoncton.com/wp-content/uploads/2018/02/tayotaki-Copy-300x300.jpg" alt="Takoyaki">
+        <div class="shop-product-metas">
+                <h2>LaSalle Takoyaki</h2>
+            <span class="price">$8.95</span>
+        </div>
+    </li>
+    
+    <!--Special Plates bellow-->
+    
+    <div class="special-plates">
+        <h2>Special Plates of the Day!</h2>
+        <p>Check out today's special plates!</p>
+        <ul class="regular-plates">
+            <li class="product-thumbnail" onclick="showPopup('Chicken Karaage', 9.95)">
+                <img src="https://japangomoncton.com/wp-content/uploads/2022/07/chicken-karaage-300x300.jpg" alt="Chicken Karaage">
+            <div class="shop-product-metas">
+                    <h2 id="Special_Plates_Text">Chicken Karaage</h2>
+                <span id="Special_Plates_Text" class="price">$9.95</span>
+            </div>
+            </li>
+         
+        
+        <li class="product-thumbnail" onclick="showPopup('Tuna Tataki', 13.95)">
+                <img src="https://japangomoncton.com/wp-content/uploads/2017/11/tuna-tataki-300x300.jpg" alt="Tuna Tataki">
+            <div class="shop-product-metas">
+                    <h2 id="Special_Plates_Text">Tuna Tataki</h2>
+                <span id="Special_Plates_Text" class="price">$13.95</span>
+            </div>
+        </li>
+            
+        <li class="product-thumbnail" onclick="showPopup('Sushi-Salmon', 10.95)">
+                <img src="https://japangomoncton.com/wp-content/uploads/2017/11/IMG_5353-300x300.jpg" alt="Sushi Pizza Salmon">
+            <div class="shop-product-metas">
+                    <h2 id="Special_Plates_Text">Sushi-Salmon</h2>
+                <span id="Special_Plates_Text" class="price">$10.95</span>
+            </div>
+        </li>
+            
+        <li class="product-thumbnail" onclick="showPopup('Sushi-Mango', 11.95)">
+                <img src="https://japangomoncton.com/wp-content/uploads/2017/11/IMG_6068-300x300.jpg" alt="Sushi Pizza Mango">
+            <div class="shop-product-metas">
+                    <h2 id="Special_Plates_Text">Sushi-Mango</h2>
+                <span id="Special_Plates_Text" class="price">$11.95</span>
+            </div>
+        </li>
+        </ul>
+    </div>    
+    </ul>
+
+<!-- End Plates-->
+
+<!-- Popup para confirmar adição ao carrinho -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2 id="item-name"></h2>
+        <p id="item-price"></p>
+        <div class="popup-buttons">
+            <button class="popup-button" onclick="addItemToCart()">Yes</button>
+            <button class="popup-button secondary" onclick="hidePopup()">No</button>
+        </div>
+    </div>
+</div>
+<!-- End Popup para confirmar adição ao carrinho -->
+
+
+
+
+
+
+<!-- Start Footer -->
+<div class="footer">
+    <p>© 2024 La Salle Sushi. All rights reserved.</p>
+</div>
+<!-- End Footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    function showPopup(itemName, itemPrice) {
+  const popup = document.getElementById("popup");
+  const itemNameSpan = popup.querySelector("#item-name");
+  const itemPriceSpan = popup.querySelector("#item-price");
+
+  // Construindo a frase completa para a janela popup
+  const fullMessage = `Do you wish to add ${itemName} to the cart?`;
+
+  itemNameSpan.textContent = fullMessage;
+  itemPriceSpan.textContent = `$${itemPrice.toFixed(2)}`;
+
+  // Armazenando o nome do item como um atributo no elemento
+  itemNameSpan.setAttribute("data-item-name", itemName);
+
+  popup.style.display = "block";
+}
+
+
+    function hidePopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    function addItemToCart() {
+  const popup = document.getElementById("popup");
+  popup.style.display = "none";
+
+  const itemNameElement = popup.querySelector("#item-name");
+  const itemName = itemNameElement.getAttribute("data-item-name");
+
+  const itemPriceElement = popup.querySelector("#item-price");
+  const itemPriceText = itemPriceElement.textContent.trim();
+  const itemPrice = parseFloat(itemPriceText.replace('$', '').replace(',', '.'));
+
+  const item = {
+    name: itemName,
+    price: itemPrice
+  };
+
+  cartItems.push(item);
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+  // Limpa o texto do itemNameElement apenas após adicionar ao carrinho
+  itemNameElement.textContent = '';
+}
+</script>
+</body>
+</html>

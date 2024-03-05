@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Salle Sushi - Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333; 
+        }
+
+        h1 {
+            height: 5%;
+            width: 5%;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+    
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand {
+            font-size: 35.rem;
+            color: #f7f9f8;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }             
+
+        .navbar-brand span {
+            color: #ffc107;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f7f9f8;
+            font-size: 18.rem;          
+            white-space: nowrap;
+            
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+
+        .container-fluid img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+     
+
+        .list-group-item{
+            width: 1,6rem;
+            
+        }
+
+        .cart-items {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ccc;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .cart-item img {
+            max-width: 80px;
+            height: auto;
+        }
+
+        .cart-item-name {
+            font-size: 1.6rem;
+        }
+
+        .cart-item-price {
+            font-size: 1.4rem;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .clear-cart-btn {
+            margin-top: 20px;
+            padding: 5px 10px;
+            font-size: 1.6rem;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+
+        .checkout-btn {
+            margin-top: 20px;
+            padding: 5px 10px;
+            font-size: 1.6rem;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }        
+
+        #checkout-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            width: 300px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.popup-buttons {
+    margin-top: 20px;
+}
+
+.popup-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #0c9f2c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.popup-button.secondary {
+    background-color: #db0e23;
+}
+
+.popup-button.secondary:hover {
+    background-color: #bd2130;
+}
+
+    .summary {
+
+        margin: 20px;
+        padding: 20px;
+        background-color: white;
+        border: 2px solid #ccc;
+       
+    }
+    .summary label {
+        font-weight: bold;
+      
+    }
+    .summary .btn-confirm {
+        margin-top: 20px;
+            padding: 5px 10px;
+            font-size: 1.6rem;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+    }
+    .value {
+    margin-left: 20px; 
+    }
+
+    #footer {
+            position:absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;           
+        }
+        .footer{
+            text-align: center;
+            background-color: #343a40;
+            color: #ffc107;
+            margin-top: 5%;
+        }
+
+    
+    
+    </style>
+</head>
+<body>
+
+     <!-- Start Navigation bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Main.html">           
+            
+            <span>La Salle</span> Sushi
+            <h1><img src="Images/ImagemHeader2.jpg"></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu">                     
+                        <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                        <li>
+                            <a class="dropdown-item" href="menu.html">Sushi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Signin.html">Sign in</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="Cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navigation bar -->
+
+<!-- Cart Items -->
+<div class="cart-items">
+    <h2>Your Cart</h2>
+    <ul id="cart-list" class="list-group">
+        <!-- Cart items will be dynamically added here -->
+    </ul>
+    <p id="cart-total" class="lead">Total: $0.00</p>
+    <button id="clear-cart-btn" class="clear-cart-btn">Clear Cart</button>
+    <button id="checkout-btn" class="checkout-btn">Checkout</button>
+</div>
+<!--End of Cart Items-->
+
+<!--PopUp Buttom for Checkout-->
+<div id="checkout-popup" class="popup">
+    <div class="popup-content">
+        <h2>Deseja finalizar a compra?</h2>
+        <div class="popup-buttons">
+            <button id="confirm-checkout-btn" class="popup-button">Sim</button>
+            <button id="cancel-checkout-btn" class="popup-button secondary">Não</button>
+        </div>
+    </div>
+</div>
+<!--End of PopUp Buttom for Checkout-->
+
+<!-- Vertical line -->
+<div class="summary">
+    <label>Summary</label><br>
+    <p>Subtotal: <span id="subtotal"></span></p>
+    <p>Tax (5%): <span id="tax"></span></p>
+    <p>Tip: <span id="tip"></span></p>
+    <p>Total: <span id="total"></span></p>
+    <button type="button" class="btn-confirm">Confirm Order</button>
+</div>   
+</div>
+
+<!-- End Cart Items -->
+
+<!-- Start Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 La Salle Sushi. All rights reserved.</p>
+    </div>
+</footer>
+<!-- End Footer -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Script -->
+<script>
+
+    //Function to enable pop up buttom:
+
+    // Função para exibir pop-up de checkout
+    function showCheckoutPopup() {
+    const checkoutPopup = document.getElementById("checkout-popup");
+    checkoutPopup.style.display = "block";
+}
+
+// Função para fechar pop-up de checkout
+function hideCheckoutPopup() {
+    const checkoutPopup = document.getElementById("checkout-popup");
+    checkoutPopup.style.display = "none";
+}
+
+// Evento de clique no botão "Checkout"
+const checkoutBtn = document.getElementById("checkout-btn");
+checkoutBtn.addEventListener("click", function() {
+    showCheckoutPopup();
+});
+
+// Evento de clique no botão "Sim" no pop-up de checkout
+const confirmCheckoutBtn = document.getElementById("confirm-checkout-btn");
+confirmCheckoutBtn.addEventListener("click", function() {
+    // Aqui você pode adicionar a lógica para finalizar a compra
+    alert("Compra finalizada!");
+    // Por exemplo, você pode limpar o carrinho após finalizar a compra
+    clearCart();
+    // Esconda o pop-up após finalizar a compra
+    hideCheckoutPopup();
+});
+
+// Evento de clique no botão "Não" no pop-up de checkout
+const cancelCheckoutBtn = document.getElementById("cancel-checkout-btn");
+cancelCheckoutBtn.addEventListener("click", function() {
+    hideCheckoutPopup();
+});
+
+//End of Pop Up Buttom Function
+
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    function showCart() {
+        const cartList = document.getElementById("cart-list");
+        const cartTotal = document.getElementById("cart-total");
+
+        cartList.innerHTML = "";
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            cartList.appendChild(listItem);
+
+            total += item.price;
+        });
+
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function clearCart() {
+        cartItems = [];
+        localStorage.removeItem('cartItems');
+        showCart();
+    }
+
+    const clearCartBtn = document.getElementById("clear-cart-btn");
+    clearCartBtn.addEventListener("click", clearCart);
+
+    showCart(); // Display cart items initially
+</script>
+
+</body>
+</html>
