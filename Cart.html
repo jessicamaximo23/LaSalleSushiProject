@@ -33,7 +33,7 @@
 
         .navbar-brand i {
             margin-right: 10px;
-        }             
+        }  
 
         .navbar-brand span {
             color: #ffc107;
@@ -55,7 +55,24 @@
             height: auto;
             margin-top: 20px;
         }
-     
+
+        #footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #ffc107;
+    text-align: center;
+    line-height: 1.0rem; /* Adjust this value to center vertically if needed */
+}
 
         .list-group-item{
             width: 1,6rem;
@@ -114,21 +131,23 @@
             color: rgb(255, 255, 255);
             border: none;
             cursor: pointer;
-        }        
+        }
+
+        /*Begin of Pop Up CSS items*/
 
         #checkout-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 9999;
-            width: 300px;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
 
 .popup-content {
     background-color: #fff;
@@ -161,55 +180,15 @@
     background-color: #bd2130;
 }
 
-    .summary {
-
-        margin: 20px;
-        padding: 20px;
-        background-color: white;
-        border: 2px solid #ccc;
-       
-    }
-    .summary label {
-        font-weight: bold;
-      
-    }
-    .summary .btn-confirm {
-        margin-top: 20px;
-            padding: 5px 10px;
-            font-size: 1.6rem;
-            background-color: #000000;
-            color: rgb(255, 255, 255);
-            border: none;
-            cursor: pointer;
-    }
-    .value {
-    margin-left: 20px; 
-    }
-
-    #footer {
-            position:absolute;
-            bottom: 0;
-            width: 100%;
-            height: 2.5rem;           
-        }
-        .footer{
-            text-align: center;
-            background-color: #343a40;
-            color: #ffc107;
-            margin-top: 5%;
-        }
-
     
     
     </style>
 </head>
 <body>
-
-     <!-- Start Navigation bar -->
-  <nav class="navbar navbar-expand-lg">
+<!-- Start Navigation bar -->
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="Main.html">           
-            
             <span>La Salle</span> Sushi
             <h1><img src="Images/ImagemHeader2.jpg"></h1>
         </a>
@@ -219,14 +198,12 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Menu
                     </a>
-                    <ul class="dropdown-menu">                     
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                     
                         <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
-                        <li>
-                            <a class="dropdown-item" href="menu.html">Sushi</a>
-                        </li>
+                        <li><a class="dropdown-item" href="menu.html">Sushi</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -262,25 +239,116 @@
 <!--PopUp Buttom for Checkout-->
 <div id="checkout-popup" class="popup">
     <div class="popup-content">
-        <h2>Deseja finalizar a compra?</h2>
+        <h2>Do you want to finalize the purchase?</h2>
         <div class="popup-buttons">
-            <button id="confirm-checkout-btn" class="popup-button">Sim</button>
-            <button id="cancel-checkout-btn" class="popup-button secondary">Não</button>
+            <button id="confirm-checkout-btn" class="popup-button">Yes</button>
+            <button id="cancel-checkout-btn" class="popup-button secondary">No</button>
         </div>
     </div>
 </div>
 <!--End of PopUp Buttom for Checkout-->
 
-<!-- Vertical line -->
-<div class="summary">
-    <label>Summary</label><br>
-    <p>Subtotal: <span id="subtotal"></span></p>
-    <p>Tax (5%): <span id="tax"></span></p>
-    <p>Tip: <span id="tip"></span></p>
-    <p>Total: <span id="total"></span></p>
-    <button type="button" class="btn-confirm">Confirm Order</button>
-</div>   
-</div>
+<!-- Script -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Function for clean cart
+    const clearCartBtn = document.getElementById("clear-cart-btn");
+    clearCartBtn.addEventListener("click", function () {
+        localStorage.removeItem("cartItems");
+
+        // Call function showCartItems with empty array
+        showCartItems([]); 
+    });
+
+    // Show the  pop-up checkout
+    const checkoutBtn = document.getElementById("checkout-btn");
+    const checkoutPopup = document.getElementById("checkout-popup");
+
+    checkoutBtn.addEventListener("click", function () {
+        checkoutPopup.style.display = "block";
+    });
+
+    // Confirm checkout
+    const confirmCheckoutBtn = document.getElementById("confirm-checkout-btn");
+    confirmCheckoutBtn.addEventListener("click", function () {
+
+        //Send for payment page
+        window.location.href = "PaymentMethod.html";
+
+        alert("Purchase complete!");
+        localStorage.removeItem("cartItems");
+
+        showCartItems([]); 
+        checkoutPopup.style.display = "none";
+    });
+
+    // Function for cancel the checkout
+    const cancelCheckoutBtn = document.getElementById("cancel-checkout-btn");
+    cancelCheckoutBtn.addEventListener("click", function () {
+        checkoutPopup.style.display = "none";
+    });
+
+    // Function for show itens inside the cart
+    function showCartItems(cartItems) {
+        const cartList = document.getElementById("cart-list");
+        const cartTotal = document.getElementById("cart-total");
+
+        cartList.innerHTML = "";
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item", "cart-item");
+
+            const itemName = document.createElement("span");
+            itemName.textContent = item.name;
+            itemName.classList.add("cart-item-name");
+
+            const itemPrice = document.createElement("span");
+            itemPrice.textContent = `$${item.price.toFixed(2)}`;
+            itemPrice.classList.add("cart-item-price");
+
+            const itemQuantity = document.createElement("span");
+            itemQuantity.textContent = `Quantity: ${item.quantity}`;
+            itemQuantity.classList.add("cart-item-quantity");
+
+            listItem.appendChild(itemName);
+            listItem.appendChild(itemPrice);
+            listItem.appendChild(itemQuantity);
+
+            cartList.appendChild(listItem);
+
+            // add to the total
+            total += item.price * item.quantity;
+        });
+
+        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+     
+        localStorage.setItem('cartTotal', total.toFixed(2));
+    }
+
+    function addItemToCart(itemName, itemPrice, quantity) {
+        const item = {
+            name: itemName,
+            price: itemPrice,
+            quantity: quantity
+        };
+
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        cartItems.push(item);
+
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+        showCartItems(cartItems);
+    }
+
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    showCartItems(cartItems);
+});
+</script>
 
 <!-- End Cart Items -->
 
@@ -292,82 +360,11 @@
 </footer>
 <!-- End Footer -->
 
+<!-- Bootstrap JavaScript local -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+<!--Keeps the menu in place-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-<!-- Script -->
-<script>
-
-    //Function to enable pop up buttom:
-
-    // Função para exibir pop-up de checkout
-    function showCheckoutPopup() {
-    const checkoutPopup = document.getElementById("checkout-popup");
-    checkoutPopup.style.display = "block";
-}
-
-// Função para fechar pop-up de checkout
-function hideCheckoutPopup() {
-    const checkoutPopup = document.getElementById("checkout-popup");
-    checkoutPopup.style.display = "none";
-}
-
-// Evento de clique no botão "Checkout"
-const checkoutBtn = document.getElementById("checkout-btn");
-checkoutBtn.addEventListener("click", function() {
-    showCheckoutPopup();
-});
-
-// Evento de clique no botão "Sim" no pop-up de checkout
-const confirmCheckoutBtn = document.getElementById("confirm-checkout-btn");
-confirmCheckoutBtn.addEventListener("click", function() {
-    // Aqui você pode adicionar a lógica para finalizar a compra
-    alert("Compra finalizada!");
-    // Por exemplo, você pode limpar o carrinho após finalizar a compra
-    clearCart();
-    // Esconda o pop-up após finalizar a compra
-    hideCheckoutPopup();
-});
-
-// Evento de clique no botão "Não" no pop-up de checkout
-const cancelCheckoutBtn = document.getElementById("cancel-checkout-btn");
-cancelCheckoutBtn.addEventListener("click", function() {
-    hideCheckoutPopup();
-});
-
-//End of Pop Up Buttom Function
-
-    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-    function showCart() {
-        const cartList = document.getElementById("cart-list");
-        const cartTotal = document.getElementById("cart-total");
-
-        cartList.innerHTML = "";
-        let total = 0;
-
-        cartItems.forEach(item => {
-            const listItem = document.createElement("li");
-            listItem.classList.add("list-group-item");
-            listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-            cartList.appendChild(listItem);
-
-            total += item.price;
-        });
-
-        cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-    }
-
-    function clearCart() {
-        cartItems = [];
-        localStorage.removeItem('cartItems');
-        showCart();
-    }
-
-    const clearCartBtn = document.getElementById("clear-cart-btn");
-    clearCartBtn.addEventListener("click", clearCart);
-
-    showCart(); // Display cart items initially
-</script>
 
 </body>
 </html>

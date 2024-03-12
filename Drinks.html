@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Opções de Drinks - Restaurante de Sushi</title> 
+  <title>Drinks - LaSalleSushi</title> 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-csQVlUVBDr42CFW9C9MzAC7uCeGiVH6ZK45fYURBhs7P1eAMswEmI9+9I+UWaN0I" crossorigin="anonymous">
   <style>
       body {
-      background-color: #f2f2f2;
-      color: #333; 
-      margin: 0;
-      padding: 0;
+        background-color: #f2f2f2;
+        color: #333; 
+        margin: 0;
+        padding: 0;
       
       }
         h1{
@@ -49,43 +49,8 @@
 
         .navbar-nav .nav-link:hover {
             color: #ffc107;
-        }
+        }      
 
-        #cartModal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        top: 50%;
-        right: 20px; 
-        transform: translate(50%, -50%);
-        width: 20%; 
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
         .quantity {
             display: flex;
@@ -128,16 +93,70 @@
             height: auto;
             margin-top: 20px;
         }
+              
+         .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
 
-        .footer {
-            background-color: #343a40;
-            color: #ffc107;
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
             text-align: center;
-            padding: 10px;
-            position:relative;
+        }
+
+        .popup-buttons {
+            margin-top: 20px;
+        }
+
+        .popup-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #0c9f2c;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        .popup-button:hover {
+            background-color: #0c9f2c;
+        }
+
+        .popup-button.secondary {
+            background-color: #db0e23;
+        }
+
+        .popup-button.secondary:hover {
+            background-color: #bd2130;
+        }
+        #footer {
+            position: fixed;
             bottom: 0;
             width: 100%;
+            height: 2.5rem;  
+                    
         }
+
+      .footer{
+            text-align: center;            
+            color: black;
+            margin-top: 10%; 
+      }
         
 
   </style>
@@ -147,7 +166,6 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
           <a class="navbar-brand" href="Main.html">           
-              
               <span>La Salle</span> Sushi
               <h1><img src="Images/ImagemHeader2.jpg"></h1>
           </a>
@@ -157,14 +175,12 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
-                      <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Menu
                       </a>
-                      <ul class="dropdown-menu">                     
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                     
                           <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
-                          <li>
-                              <a class="dropdown-item" href="menu.html">Sushi</a>
-                          </li>
+                          <li><a class="dropdown-item" href="menu.html">Sushi</a></li>
                       </ul>
                   </li>
                   <li class="nav-item">
@@ -192,19 +208,18 @@
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="card h-100">
         <img class="card-img-top" src="Images/Saketini.jpg" alt="Drink 1">
-
         <div class="card-body">
-          <h4 class="card-title">Saketini</h4>
-          <p class="card-text">A perfect mix of sake and martini, perfect to accompany sushi.</p>
-          <p class="card-text">$19.90</p>
-          <div class="quantity">
-              <button onclick="decrementQuantity(this)" class="btn btn-sm btn-warning">-</button>
-              <span class="quantity-display" style="margin: 0 10px;">0</span>
-              <button onclick="incrementQuantity(this)" class="btn btn-sm btn-warning">+</button>
+            <h4 class="card-title">Saketini</h4>
+            <p class="card-text">A perfect mix of sake and martini, perfect to accompany sushi.</p>
+            <p class="card-text">$19.90</p>
+            <div class="quantity">
+                <button onclick="decrementQuantity(this)" class="btn btn-sm btn-warning">-</button>
+                <span class="quantity-display" style="margin: 0 10px;">0</span>
+                <button onclick="incrementQuantity(this)" class="btn btn-sm btn-warning">+</button>
+            </div>
+            <br>
+            <button onclick="showPopup('Saketini', 19.90, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
-          <br>
-          <button onclick="addToCart('Saketini', 19.90, this)" class="btn btn-warning mt-2">Add to Cart</button>
-        </div>
       </div>
     </div>
     
@@ -221,7 +236,7 @@
             <button onclick="incrementQuantity(this)" class="btn btn-sm btn-warning">+</button>
           </div>
           <br>
-          <button onclick="addToCart('Plum Wine Spritzer', 22.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          <button onclick="showPopup('Plum Wine Spritzer', 22.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -239,7 +254,7 @@
             <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
           </div>
           <br>
-          <button onclick="addToCart('Green Tea Mojito', 15.90, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          <button onclick="showPopup('Green Tea Mojito', 15.90, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -262,7 +277,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('Sparkling Elder Flower', 15.0, this)" class="btn btn-warning mt-2">Add to Cart</button>            
+            <button onclick="showPopup('Sparkling Elder Flower', 15.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>           
           </div>
         </div>
       </div>
@@ -280,7 +295,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('Ginger Chapagne', 22.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+            <button onclick="showPopup('Ginger Chapagne', 22.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -298,7 +313,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('Sparkling Orange', 15.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+            <button onclick="showPopup('Sparkling Orange', 15.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -320,7 +335,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('Potter Settlement 2017 Marquette', 71.95, this)" class="btn btn-warning mt-2">Add to Cart</button>
+            <button onclick="showPopup('Potter Settlement 2017 Marquette', 71.95, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -338,7 +353,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('Le Grand Clos 2020 Chardonnay', 49.95, this)" class="btn btn-warning mt-2">Add to Cart</button>            
+            <button onclick="showPopup('Le Grand Clos 2020 Chardonnay', 49.95, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -356,7 +371,7 @@
               <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
             </div>
             <br>
-            <button onclick="addToCart('2017 Blanc de Blanc Traditional Method Sparkling', 52.0, this)" class="btn btn-warning mt-2">Add to Cart</button>   
+            <button onclick="showPopup('2017 Blanc de Blanc Traditional Method Sparkling', 52.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -377,7 +392,7 @@
             <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
           </div>
           <br>
-          <button onclick="addToCart('Water Perrie', 8.0, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          <button onclick="showPopup('Water Perrie', 8.0, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -394,7 +409,7 @@
             <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
           </div>
           <br>
-          <button onclick="addToCart('Crush', 6.99, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          <button onclick="showPopup('Crush', 6.99, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -411,7 +426,7 @@
             <button onclick="incrementQuantity(this)" class="btn btn-sm btn-outline-secondary">+</button>
           </div>
           <br>
-          <button onclick="addToCart('Pepsi', 6.99, this)" class="btn btn-warning mt-2">Add to Cart</button>
+          <button onclick="showPopup('Pepsi', 6.99, parseInt(this.parentNode.querySelector('.quantity-display').textContent))" class="btn btn-warning mt-2">Add to Cart</button>
         </div>
       </div>
     </div>
@@ -421,106 +436,100 @@
 
 <!-- Menu Drinks End -->
 
-<!-- Carrinho de compras -->
-<div class="cart-items">
-    <h2>Your Cart</h2>
-    <ul id="cartItemList" class="list-group">
-        <!-- Cart items will be dynamically added here -->
-    </ul>
-    <p id="cartTotal" class="lead">Total: $0.00</p>
-    <button onclick="clearCart()" class="clear-cart-btn">Clear Cart</button>
-    <button onclick="checkout()" class="checkout-btn">Checkout</button>
+<!-- Popup for confirm add in cart -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+      <h2 id="item-name"></h2>
+      <p id="item-price"></p>
+      <div class="popup-buttons">
+          <button class="popup-button" onclick="addItemToCart()">Yes</button>
+          <button class="popup-button secondary" onclick="hidePopup()">No</button>
+      </div>
+  </div>
 </div>
+
+<!-- Start Footer -->
+<div class="footer">
+  <p>© 2024 La Salle Sushi. All rights reserved.</p>
+</div>
+<!-- End Footer -->
+
+<!-- Bootstrap JavaScript local -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+<!--Keeps the menu in place-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
-  //Array for store itens
-    let cart = [];
+  let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    function incrementQuantity(element) {
-        let quantityElement = element.parentNode.querySelector('.quantity-display');
-        let currentQuantity = parseInt(quantityElement.textContent);
-        quantityElement.textContent = currentQuantity + 1;
-    }
+  function incrementQuantity(element) {
+      let quantityElement = element.parentNode.querySelector('.quantity-display');
+      let currentQuantity = parseInt(quantityElement.textContent);
+      quantityElement.textContent = currentQuantity + 1;
+  }
 
-    function decrementQuantity(element) {
-        let quantityElement = element.parentNode.querySelector('.quantity-display');
-        let currentQuantity = parseInt(quantityElement.textContent);
-        if (currentQuantity > 0) {
-            quantityElement.textContent = currentQuantity - 1;
-        }
-    }
+  function decrementQuantity(element) {
+      let quantityElement = element.parentNode.querySelector('.quantity-display');
+      let currentQuantity = parseInt(quantityElement.textContent);
+      if (currentQuantity > 0) {
+          quantityElement.textContent = currentQuantity - 1;
+      }
+  }
 
-    // Função para adicionar um item ao carrinho
-function addToCart(itemName, itemPrice, button) {
-    let quantityElement = button.parentNode.querySelector('.quantity-display');
-    let quantity = parseInt(quantityElement.textContent);
+  function showPopup(itemName, itemPrice, quantity) {
+      const popup = document.getElementById("popup");
+      const itemNameSpan = popup.querySelector("#item-name");
+      const itemPriceSpan = popup.querySelector("#item-price");
 
-    if (quantity > 0) {
-        let item = {
-            name: itemName,
-            price: itemPrice,
-            quantity: quantity
-        };
-        cart.push(item); // Adiciona o item ao carrinho
-        updateCart(); // Atualiza o carrinho após adicionar o item
-        updateTotal(); // Atualiza o valor total do carrinho
-    } else {
-        alert('Please select a quantity greater than 0.');
-    }
-}
+      const fullMessage = `Do you wish to add ${quantity}x ${itemName} to the cart? Total: $${(itemPrice * quantity).toFixed(2)}`;
 
+      itemNameSpan.textContent = fullMessage;
+      itemNameSpan.dataset.itemName = itemName;  
+      itemNameSpan.dataset.quantity = quantity; 
 
-    // Function for Update
-    function updateCart() {
-        let cartItemList = document.getElementById('cartItemList');
-        cartItemList.innerHTML = ''; // Limpa a lista de itens do carrinho
+      itemPriceSpan.textContent = `Price: $${itemPrice.toFixed(2)}`;
 
-        cart.forEach(item => {
-            let listItem = document.createElement('li');
-            listItem.classList.add('list-group-item');
-            listItem.textContent = `${item.name} - Quantity: ${item.quantity} - Price: $${(item.price * item.quantity).toFixed(2)}`;
-            //add the item inside the list
-            cartItemList.appendChild(listItem); 
-        });
-    }
+      popup.style.display = "block";
+  }   
 
-    // Funnction for de Total value
-    function updateTotal() {
-        let total = 0;
-        cart.forEach(item => {
-            total += item.price * item.quantity;
-        });
-        //refresd the Total value 
-        document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
-    }
+  function hidePopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";
+  }
 
-    function openCart() {
-        document.getElementById('cartModal').style.display = 'block';
-    }
+  function addItemToCart() {
+      const popup = document.getElementById("popup");
+      popup.style.display = "none";
 
-    function closeCart() {
-        document.getElementById('cartModal').style.display = 'none';
-    }
+      const itemNameElement = popup.querySelector("#item-name");
+      const itemName = itemNameElement.getAttribute("data-item-name");
+      const quantity = parseInt(itemNameElement.getAttribute("data-quantity"));
+      const itemPriceElement = popup.querySelector("#item-price");
+      const itemPriceText = itemPriceElement.textContent.trim();
+      const itemPrice = parseFloat(itemPriceText.replace('Price: $', ''));
 
+      if (!isNaN(itemPrice) && itemName && quantity) {
+          const item = {
+              name: itemName,
+              price: itemPrice,
+              quantity: quantity
+          };
 
-    // Function for clean the cart
-function clearCart() {
-  //Empty the array
-    cart = []; //
-    // Update the cart to reflect the removal of items
-    updateCart();
-    // Update the total cart value to reflect the removal of items
-    updateTotal(); 
-}
+    
+          let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
+          // add the new item
+          cartItems.push(item);
 
-function checkout() {
-    // Changed the location for paymmentmethod
-    window.location.href = "Cart.html";
-}
+          // localStorage
+          localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      } else {
+          alert("Error adding item to cart. Please try again.");
+      }
+  }
 </script>
-
 </body>
 </html>

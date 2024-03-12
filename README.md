@@ -18,7 +18,6 @@ Feel free to explore the website and enjoy a seamless sushi ordering experience 
 Happy sushi shopping! 🍣🥢
 
 ## :camera_flash: Screenshots
-<!-- You can add more screenshots here if you like -->
 
 <img src="/results/imc_healthy.png" width="260">&emsp;<img src="/results/imc_healthy1.png" width="260">&emsp;<img src="/results/imc_healthy2.png" width="260">
 

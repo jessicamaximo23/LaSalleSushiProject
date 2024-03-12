@@ -9,10 +9,10 @@
     <style>
         body {
             background-color:  #f7f9f8;
-            color:#343a40;
-           
+            color:#343a40;           
         }
-        h1{
+
+        h1 {
             height: 5%;
             width: 5%;
             margin-left: 10px;
@@ -103,20 +103,17 @@
         .about {
             display: flex;
             flex-direction: column;
-            align-items: center;
-           
+            align-items: center;           
         }
 
         .about.right {
             align-items: center;
-            margin-top: 4%;
-           
+            margin-top: 4%;           
         }
 
         .about.left {
             align-items: center;      
-            margin-top: 4%;
-          
+            margin-top: 4%;       
                 
         }       
 
@@ -191,7 +188,7 @@
     <!-- Start Navigation bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">           
+            <a class="navbar-brand" href="Main.html">           
                 <span>La Salle</span> Sushi
                 <h1><img src="Images/ImagemHeader2.jpg"></h1>
             </a>
@@ -201,14 +198,12 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="Menu.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Menu
                         </a>
-                        <ul class="dropdown-menu">                     
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                     
                             <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
-                            <li>
-                                <a class="dropdown-item" href="menu.html">Sushi</a>
-                            </li>
+                            <li><a class="dropdown-item" href="menu.html">Sushi</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -216,7 +211,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Signin.html">Sign in</a>
-                    </li>
+                    </li>                
                     <li class="nav-item">
                         <a class="nav-link" href="Cart.html">Cart</a>
                     </li>
@@ -234,7 +229,8 @@
         <div class="background-image-content">
             <h1>Welcome to La Salle Sushi</h1>
             <p>Discover a unique experience of flavor and quality.</p>
-            <a href="Menu.html" class="btn">Discover our menu</a>
+            <a href="Menu.html" class="btn">Discover our Plates</a>
+            <a href="Drinks.html" class="btn">Discover our Drinks</a>
         </div>
     </section>
     <!-- End Section Background Image -->
@@ -286,7 +282,8 @@
         <p>© 2024 La Salle Sushi. All rights reserved.</p>
     </footer>
     <!-- End Footer -->
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
 </body>
 </html>

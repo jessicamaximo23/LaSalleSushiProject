@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu - La Salle Sushi</title>
+    <title>La Salle Sushi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
+
         body {
             background-color: #f2f2f2;
             color: #333;
-            margin: 0;
-            padding: 0;
            
         }
         h1{
@@ -21,6 +21,32 @@
             margin-bottom: 10px;
             margin-top: -10px;
         }
+
+        h3{
+
+        font-size: 4rem;
+        text-align: center;
+        color: black;
+        font-size: 36px;       
+        animation: highlight 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes highlight {
+        from {
+        color: black;
+        text-shadow: none;
+        }
+    
+        to {
+        color: red;
+        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 40px yellow, 0 0 80px green, 0 0 160px blue, 0 0 320px violet;
+        }
+    }
+
+        #Special_Plates_Text{
+        color: black;
+        }   
+
         .navbar {
             background-color: #343a40;
         }
@@ -30,12 +56,6 @@
             color: #f7f9f8;
             display: flex;
             align-items: center;
-        }
-        .navbar-nav .nav-link {
-            color: #f7f9f8;
-            font-size: 1.1rem;          
-            white-space: nowrap;
-            
         }
 
         .navbar-brand i {
@@ -48,9 +68,8 @@
 
         .navbar-nav .nav-link {
             color: #f7f9f8;
-            font-size: 18.rem;          
+            font-size: 18.rem;
             white-space: nowrap;
-            
         }
 
         .navbar-nav .nav-link:hover {
@@ -65,31 +84,7 @@
         .custom-navbar-brand {
             font-size: 20px;
             color: #ffc107; 
-        }    
-        
-        h3{
-        font-size: 4rem;
-        text-align: center;
-        color: black;
-        font-size: 36px;       
-        animation: highlight 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes highlight {
-        from {
-        color: black;
-        text-shadow: none;
-        }
-
-        to {
-        color: red;
-        text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 40px yellow, 0 0 80px green, 0 0 160px blue, 0 0 320px violet;
-     }
-    }
-
-    #Special_Plates_Text{
-    color: black;
-    }       
+        }      
 
         .form-container {
             display: flex;
@@ -104,12 +99,24 @@
 
         #content-wrap {
             padding-bottom: 2.5rem;   
-        }       
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;            
+        }
+        .footer{
+            text-align: center;
+            background-color: #343a40;
+            color: #ffc107;
+        }
        
         .product-thumbnail {        
             display: inline-block;
             width: calc(20.0% - 20px); 
-            margin: 20px;
+            margin: 10px;
             text-align: center;
             margin-left: 60px;
             cursor: pointer;
@@ -205,61 +212,48 @@
         .popup-button.secondary:hover {
             background-color: #bd2130;
         }
-        #footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 2.5rem;  
-                    
-        }
-        .footer{
-            text-align: center;            
-            color: black;
-            margin-top: 10%; 
-         }
-
 
     </style>
 </head>
 <body>
  <!-- Start Navigation bar -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="Main.html">           
-              <span>La Salle</span> Sushi
-              <h1><img src="Images/ImagemHeader2.jpg"></h1>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Menu
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                     
-                          <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
-                          <li><a class="dropdown-item" href="menu.html">Sushi</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="Contact-us.html">Contact Us</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="Signin.html">Sign in</a>
-                  </li>                
-                  <li class="nav-item">
-                      <a class="nav-link" href="Cart.html">Cart</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="PaymentMethod.html">Payment</a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-  <!-- End Navigation bar -->
+ <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="Main.html">           
+            <span>La Salle</span> Sushi
+            <h1><img src="Images/ImagemHeader2.jpg"></h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                     
+                        <li><a class="dropdown-item" href="Drinks.html">Drinks</a></li>
+                        <li><a class="dropdown-item" href="menu.html">Sushi</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contact-us.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Signin.html">Sign in</a>
+                </li>                
+                <li class="nav-item">
+                    <a class="nav-link" href="Cart.html">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="PaymentMethod.html">Payment</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navigation bar -->
 
 <!--Start Plates-->
 <p> </p>
@@ -450,7 +444,7 @@
 
 <!-- End Plates-->
 
-<!-- Popup for add Cart -->
+<!-- Popup para confirmar adição ao carrinho -->
 <div id="popup" class="popup">
     <div class="popup-content">
         <h2 id="item-name"></h2>
@@ -496,8 +490,8 @@
       const fullMessage = `Do you wish to add ${quantity}x ${itemName} to the cart? Total: $${(itemPrice * quantity).toFixed(2)}`;
 
       itemNameSpan.textContent = fullMessage;
-      itemNameSpan.dataset.itemName = itemName;  
-      itemNameSpan.dataset.quantity = quantity; 
+      itemNameSpan.dataset.itemName = itemName;  // Adicionando como data-item-name
+      itemNameSpan.dataset.quantity = quantity; // Adicionando como data-quantity
 
       itemPriceSpan.textContent = `Price: $${itemPrice.toFixed(2)}`;
 
@@ -526,16 +520,17 @@
               price: itemPrice,
               quantity: quantity
           };
-          
+
+          // Obtém os itens do localStorage
           let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-          // add A new item
+          // Adiciona o novo item
           cartItems.push(item);
 
-          // localStorage
+          // Salva os itens no localStorage
           localStorage.setItem('cartItems', JSON.stringify(cartItems));
       } else {
-          alert("Error adding item to cart. Please try again.");
+          alert("Erro ao adicionar o item ao carrinho. Por favor, tente novamente.");
       }
   }
 </script>
