@@ -20,19 +20,13 @@ Feel free to explore the website and enjoy a seamless sushi ordering experience 
 Happy sushi shopping! 🍣🥢
 
 ## :camera_flash: Screenshots
-<<<<<<< HEAD
 
-<img src="/results/imc_healthy.png" width="260">&emsp;<img src="/results/imc_healthy1.png" width="260">&emsp;<img src="/results/imc_healthy2.png" width="260">
-=======
-<!-- You can add more screenshots here if you like -->
 <img src= "ScreenShots/LaSalleSushi1.png">
 <img src= "ScreenShots/LaSalleSushi2.png">
 <img src= "ScreenShots/LaSalleSushi3.png">
 <img src= "ScreenShots/LaSalleSushi4.png">
 <img src= "ScreenShots/LaSalleSushi5.png">
 <img src= "ScreenShots/LaSalleSushi6.png">
->>>>>>> 96b09de4b92bf19fba91d93a8b200e46abb997c7
-
 
 ## Author
 Jéssica Máximo de Souza 
